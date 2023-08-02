@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@400;500&family=Inter:wght@500;800&family=Lato:ital,wght@1,900&family=Lobster&family=Merriweather:wght@300&display=swap');
+
+body {
+    background-color: aquamarine;
+}
+
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demania {
+    margin: 0 auto;
+    height: 80vh;
+    width: 80%;
+    background-color: aquamarine;
+}
+
+.demania-container {
+    display: flex;
+    flex-direction: row;
+    height: 70vh;
+    /* Ligne (horizontal) */
+}
+
+.player-1,
+.player-2 {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.player-1>p:nth-child(1),
+.player-2>p:nth-child(1) {
+    color: yellowgreen;
+}
+
+.player-1 {
+    background-color: lightblue;
+}
+
+.player-2 {
+    background-color: lightgreen;
+}

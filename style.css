@@ -34,6 +34,18 @@ h1 {
     margin: 0 auto;
 }
 
+/* Styles pour mettre en évidence le joueur actif */
+.player-1.active,
+.player-2.active {
+    background-color: yellow;
+}
+
+.player-1.winner,
+.player-2.winner {
+    background-color: green;
+}
+
+
 .player-1>p:nth-child(1),
 .player-2>p:nth-child(1) {
     color: yellowgreen;

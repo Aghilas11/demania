@@ -8,6 +8,7 @@ const score1 = document.getElementById("score-1");
 const score2 = document.getElementById("score-2");
 const global1 = document.getElementById("global-1");
 const global2 = document.getElementById("global-2");
+const resetButton = document.getElementById("reset");
 
 let activePlayer = 1;
 let score = 0;
@@ -50,6 +51,13 @@ function holdScore() {
     player1.classList.add("active");
   }
 }
+function updateFinalScores() {
+  const finalScore1Element = document.getElementById("final-score-1");
+  const finalScore2Element = document.getElementById("final-score-2");
+
+  finalScore1Element.textContent = globalScore1;
+  finalScore2Element.textContent = globalScore2;
+}
 
 function endGame(winner) {
   isGameActive = false; // La partie est terminée
@@ -57,13 +65,25 @@ function endGame(winner) {
   rollDice.disabled = true; // Désactiver le bouton "Lancer le dé"
   holdButton.disabled = true; // Désactiver le bouton "Tenir"
   replayButton.style.display = "block"; // Afficher le bouton "Revanche"
+
+  // Sauvegarder les scores dans le stockage local
+  localStorage.setItem("globalScore1", globalScore1);
+  localStorage.setItem("globalScore2", globalScore2);
+  // Sauvegarder les scores finaux dans le stockage local
+  localStorage.setItem("globalScore1", globalScore1);
+  localStorage.setItem("globalScore2", globalScore2);
+
+  // Mettre à jour les scores finaux sur la page
+  updateFinalScores();
+  updateFinalScores();
 }
 
 function startNewGame() {
   activePlayer = 1;
   score = 0;
-  globalScore1 = 0;
-  globalScore2 = 0;
+  // Charger les scores depuis le stockage local s'ils existent
+  globalScore1 = localStorage.getItem("globalScore1") || 0;
+  globalScore2 = localStorage.getItem("globalScore2") || 0;
   isGameActive = true;
   player1.classList.remove("active", "winner");
   player2.classList.remove("active", "winner");
@@ -75,6 +95,7 @@ function startNewGame() {
   score2.textContent = score;
   global1.textContent = globalScore1;
   global2.textContent = globalScore2;
+  updateFinalScores();
 }
 
 rollDice.addEventListener("click", () => {
@@ -97,3 +118,19 @@ rollDice.addEventListener("click", () => {
 holdButton.addEventListener("click", holdScore);
 
 replayButton.addEventListener("click", startNewGame);
+window.addEventListener("load", () => {
+  // Charger les scores finaux depuis le stockage local s'ils existent
+  globalScore1 = parseInt(localStorage.getItem("globalScore1")) || 0;
+  globalScore2 = parseInt(localStorage.getItem("globalScore2")) || 0;
+
+  // Mettre à jour les scores finaux sur la page
+  updateFinalScores();
+});
+
+resetButton.addEventListener("click", () => {
+  globalScore1 = 0;
+  globalScore2 = 0;
+  localStorage.removeItem("globalScore1");
+  localStorage.removeItem("globalScore2");
+  updateFinalScores(); // Mettre à jour les scores finaux sur la page
+});

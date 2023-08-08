@@ -11,32 +11,34 @@
     <div class="demania">
       <div class="demania-container">
         <div class="player-1">
-          <p>Joueur 1</p>
-          <p>
-            Score ROUND: <br />
+          <p class="player">JOUEUR 1</p>
+          <p class="round">
             <span id="score-1">0</span>
           </p>
-          <p>
-            Score GLOBAL: <br />
-            <span id="global-1">0</span>
-          </p>
+          <div class="global">
+            <p>
+              Score GLOBAL: <br />
+              <span id="global-1">0</span>
+            </p>
+          </div>
         </div>
+        <button id="roll-dice">Lancer le dé</button>
+        <button id="hold">Tenir</button>
+        <button id="replay" style="display: none">Revanche</button>
+        <span id="de">1</span>
         <div class="player-2">
-          <p>Joueur 2</p>
-          <p>
-            Score ROUND: <br />
+          <p class="player">JOUEUR 2</p>
+          <p class="round">
             <span id="score-2">0</span>
           </p>
-          <p>
-            Score GLOBAL: <br />
-            <span id="global-2">0</span>
-          </p>
+          <div class="global">
+            <p>
+              Score GLOBAL: <br />
+              <span id="global-2">0</span>
+            </p>
+          </div>
         </div>
       </div>
-      <button id="roll-dice">Lancer le dé</button>
-      <button id="hold">Tenir</button>
-      <button id="replay" style="display: none">Revanche</button>
-      <span id="de">1</span>
 
       <div class="final-scores">
         <p>Score final Joueur 1: <span id="final-score-1">0</span></p>

@@ -87,3 +87,19 @@ h1 {
 .player-2.winner {
     background-color: green;
 }
+
+.final-scores {
+    display: flex;
+    background-color: #c7365f;
+    border-radius: 15px;
+    transition: all 2s;
+
+}
+
+.final-1,
+.final2 {}
+
+#reset {
+    border: transparent;
+    margin: 0 auto;
+}

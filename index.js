@@ -9,6 +9,7 @@ const score2 = document.getElementById("score-2");
 const global1 = document.getElementById("global-1");
 const global2 = document.getElementById("global-2");
 const resetButton = document.getElementById("reset");
+const finalScore = document.querySelector(".final-score");
 
 let activePlayer = 1;
 let score = 0;
@@ -125,6 +126,10 @@ window.addEventListener("load", () => {
 
   // Mettre à jour les scores finaux sur la page
   updateFinalScores();
+
+  if (globalScore1 > 0 || globalScore2 > 0) {
+    finalScore.style.display = "block";
+  }
 });
 
 resetButton.addEventListener("click", () => {

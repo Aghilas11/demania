@@ -75,7 +75,6 @@ function endGame(winner) {
   localStorage.setItem("globalScore2", globalScore2);
 
   // Mettre à jour les scores finaux sur la page
-
   updateFinalScores();
   updateFinalScores();
 }
@@ -102,7 +101,7 @@ function startNewGame() {
 
 rollDice.addEventListener("click", () => {
   const nombreAleatoire = genererNombreAleatoire();
-  de.textContent = nombreAleatoire;
+  de.src = `https://assets.codepen.io/1279739/dice-${nombreAleatoire}.png `;
 
   if (nombreAleatoire === 1) {
     score = 0;

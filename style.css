@@ -1,14 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@400;500&family=Inter:wght@500;800&family=Lato:ital,wght@1,900&family=Lobster&family=Merriweather:wght@300&display=swap');
-
 @font-face {
     font-family: "Lato";
     src: url(./font/Lato-Bold.ttf);
 }
 
+
+/* Déclaratio, des variables  */
+:root {
+    --pink: #c7365f;
+    --red: #8C962D;
+    --aqua: rgb(18, 103, 158);
+    --player-1: rgb(63, 51, 143);
+    --player-2: rgb(62, 143, 51);
+    --active: rgb(234, 234, 20);
+    --winner: rgb(44, 100, 44);
+    --text: #f2f2f2
+}
+
 body {
     font-family: "Lato";
-    background: rgb(18, 103, 158);
+    background: var(--aqua);
     background: linear-gradient(90deg, rgba(18, 103, 158, 0.3447293447293447) 51%, rgba(174, 233, 238, 1) 100%);
+    user-select: none;
 }
 
 
@@ -16,6 +28,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .demania {
@@ -33,6 +47,7 @@ h1 {
     flex-direction: row;
     height: 70vh;
 
+
 }
 
 .player-1,
@@ -47,12 +62,13 @@ h1 {
 }
 
 .player-1 {
-    background: rgb(63, 51, 143);
+    background: var(--player-1);
     background: linear-gradient(90deg, rgba(63, 51, 143, 0) 0%, rgba(37, 57, 85, 1) 100%);
+
 }
 
 .player-2 {
-    background: rgb(62, 143, 51);
+    background: var(--player-2);
     background: linear-gradient(297deg, rgba(62, 143, 51, 0) 0%, rgba(53, 85, 37, 1) 100%);
 }
 
@@ -64,41 +80,19 @@ h1 {
     width: 50%;
     font-size: 1.1em;
     font-weight: 700;
+    color: var(--text);
 }
 
-.game {
-    position: absolute;
-    z-index: 200;
-    transform: translateX(50%);
-    left: 50%;
-    transform: translateX(-50%);
-    top: 50%;
-    display: grid;
+/* Styles pour mettre en évidence le joueur actif */
+.player-1.active,
+.player-2.active {
+    background-color: var(--active);
 }
 
-
-
-#roll-dice,
-#hold,
-#replay {
-    background-color: #8C962D;
-    border-radius: 15px;
-    color: #f2f2f2;
-    box-shadow: 4px -1px 8px 0px;
-    border: transparent;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 1rem;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-#de {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
+/* Styles pour mettre en évidence le joueuer gagnant */
+.player-1.winner,
+.player-2.winner {
+    background-color: var(--winner);
 }
 
 .round {
@@ -113,29 +107,59 @@ h1 {
 
 .global {
     margin: 0 auto;
-    background-color: #c7365f;
+    background-color: var(--pink);
     opacity: 0.8;
     border-radius: 9px;
-    color: #fff;
+    color: var(--text);
     width: 50%;
     padding: 1.3rem;
     text-align: center;
     transition: all 0.75s;
 }
 
-/* Styles pour mettre en évidence le joueur actif */
-.player-1.active,
-.player-2.active {
-    background-color: yellow;
+
+#roll-dice,
+#hold,
+#replay {
+    background-color: var(--red);
+    border-radius: 15px;
+    color: var(--text);
+    box-shadow: 4px -1px 8px 0px;
+    border: transparent;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+
 }
 
-.player-1.winner,
-.player-2.winner {
-    background-color: green;
+#de {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    height: 10vh;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+
+.game {
+    position: absolute;
+    z-index: 200;
+    transform: translateX(50%);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    display: grid;
 }
 
 .final-scores {
-    background-color: #c7365f;
+    background-color: var(--pink);
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -149,12 +173,12 @@ h1 {
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
-    font-weight: bolder;
-    color: #ccc;
+    font-weight: 700;
+    color: var(--text);
 }
 
 #reset {
-    background-color: #8C962D;
+    background-color: var(--red);
     border-radius: 15px;
     box-shadow: 4px -1px 8px 0px;
     margin: 20px;
@@ -163,7 +187,9 @@ h1 {
     align-items: center;
     gap: 5px;
     padding: 5px 10px;
-    color: #f2f2f2;
+    color: var(--text);
     border: none;
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
 }

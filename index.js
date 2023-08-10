@@ -75,6 +75,7 @@ function endGame(winner) {
   localStorage.setItem("globalScore2", globalScore2);
 
   // Mettre à jour les scores finaux sur la page
+
   updateFinalScores();
   updateFinalScores();
 }
@@ -126,10 +127,6 @@ window.addEventListener("load", () => {
 
   // Mettre à jour les scores finaux sur la page
   updateFinalScores();
-
-  if (globalScore1 > 0 || globalScore2 > 0) {
-    finalScore.style.display = "block";
-  }
 });
 
 resetButton.addEventListener("click", () => {

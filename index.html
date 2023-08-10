@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="./images/logo-dé.jpg" />
     <link rel="stylesheet" href="./style.css" />
     <title>Démania</title>
   </head>
@@ -22,10 +27,7 @@
             </p>
           </div>
         </div>
-        <button id="roll-dice">Lancer le dé</button>
-        <button id="hold">Tenir</button>
-        <button id="replay" style="display: none">Revanche</button>
-        <span id="de">1</span>
+
         <div class="player-2">
           <p class="player">JOUEUR 2</p>
           <p class="round">
@@ -38,13 +40,27 @@
             </p>
           </div>
         </div>
+
+        <div class="game">
+          <span id="de">1</span>
+          <button id="roll-dice">
+            <i class="fa-solid fa-dice"></i> Lancer le dé
+          </button>
+          <button id="hold">📥 Tenir</button>
+          <button id="replay" style="display: none">
+            <i class="fa-light fa-handshake"></i> Revanche
+          </button>
+        </div>
       </div>
       <div class="final-scores">
         <p class="final-1">
           Score final Joueur 1: <br />
           <span id="final-score-1">0</span>
         </p>
-        <button id="reset">Réinitialiser les scores</button>
+        <button id="reset">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          Réinitialiser les scores
+        </button>
         <p class="final-2">
           Score final Joueur 2: <br />
           <span id="final-score-2">0</span>
